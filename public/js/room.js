@@ -14,7 +14,8 @@ const audioButt = document.querySelector('.audio');
 const cutCall = document.querySelector('.cutcall');
 const screenShareButt = document.querySelector('.screenshare');
 const whiteboardButt = document.querySelector('.board-icon')
-
+// import { myVariable } from './script.js';
+// console.log(myVariable); 
 //whiteboard js start
 const whiteboardCont = document.querySelector('.whiteboard-cont');
 const canvas = document.querySelector("#whiteboard");
@@ -601,18 +602,6 @@ socket.on('message', (msg, sendername, time) => {
     </div>
 </div>`
 });
-function sendvoiceMsg(msg) {
-    chatRoom.scrollTop = chatRoom.scrollHeight;
-    chatRoom.innerHTML += `<div class="message">
-    <div class="info">
-        // <div class="username">${sendername}</div>
-        // <div class="time">${time}</div>
-    </div>
-    <div class="content">
-        ${msg}
-    </div>
-</div>`
-}
 videoButt.addEventListener('click', () => {
 
     if (videoAllowed) {
@@ -680,7 +669,6 @@ audioButt.addEventListener('click', () => {
     else {
         for (let key in audioTrackSent) {
             audioTrackSent[key].enabled = true;
-            // sendvoiceMsg(key);
         }
         audioButt.innerHTML = `<i class="fas fa-microphone"></i>`;
         audioAllowed = 1;
@@ -699,6 +687,37 @@ audioButt.addEventListener('click', () => {
 
         socket.emit('action', 'unmute');
     }
+})
+click_to_convert.addEventListener('click', ()=> {
+    var speech = true;
+    window.SpeechRecognition = window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.interimResults = true;
+    recognition.addEventListener('result', e => {
+        const transcript = Array.from(e.results)
+            .map(result => result[0])
+            .map(result => result.transcript)
+        convert_text.innerHTML = transcript;
+        console.log(transcript);
+        console.log("Ho na bhai");    
+        setInterval(socket.on('message', (msg, sendername, time) => {
+            chatRoom.scrollTop = chatRoom.scrollHeight;
+            chatRoom.innerHTML += `<div class="message">
+            <div class="info">
+                <div class="username">${sendername}</div>
+                <div class="time">${time}</div>
+            </div>
+            <div class="content">
+                ${transcript}
+            </div>
+        </div>`
+        }), 1000);
+
+    })
+    if (speech == true) {
+        recognition.start();
+    }
+    
 })
 
 socket.on('action', (msg, sid) => {

@@ -110,5 +110,4 @@ io.on('connect', socket => {
     });
 })
 
-
 server.listen(PORT, () => console.log(`Server is up and running on port ${PORT}`));
