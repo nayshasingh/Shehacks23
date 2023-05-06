@@ -1,9 +1,9 @@
 $blue: #2980b9;
-$blue0: #3f34db;
-$blue-1: #74b9ff;
+$blue0: #150050;
+$blue-1: #150050;
 $white: #ecf0f1;
-$nicegreen: #cc4ea2;
-$black: #393e46;
+$nicegreen: #FB2576;
+$black: #000000;
 $spacemono: "Space Mono", monospace;
 $opensans: "Open Sans", sans-serif;
 
@@ -55,7 +55,7 @@ body {
 navbar {
     .logo {
         font-size: 28px;
-        color: #393e46;
+        color: #000000;
         font-weight: bold;
         padding: 0 12%;
         margin-top: 32px;
@@ -76,8 +76,9 @@ navbar {
             .head {
                 font-size: 36px;
                 font-weight: bold;
-                color: #393e46;
+                color: #000000;
             }
+
             .subtext {
                 font-size: 24px;
                 color: #6f6f6f;
@@ -90,7 +91,7 @@ navbar {
             margin-top: 60px;
             font-size: 24px;
             font-weight: bold;
-            background-color: #7c4ecc;
+            background-color: #3F0071;
             color: white;
             text-align: center;
             padding: 10px 20px;
@@ -101,8 +102,8 @@ navbar {
 
             &:hover {
                 background-color: white;
-                border: 2px solid #bf4ecc;
-                color: #a84ecc;
+                border: 2px solid #3F0071;
+                color: #3F0071;
                 cursor: pointer;
             }
 
@@ -121,8 +122,8 @@ navbar {
             border: none;
             border-radius: 10px;
             background-color: white;
-            border: 2px solid #4ecca3;
-            color: #4ecca3;
+            border: 2px solid #FB2576;
+            color: #FB2576;
 
             &:focus {
                 outline: none;
@@ -133,7 +134,7 @@ navbar {
             width: 100%;
             margin-top: 30px;
             font-size: 24px;
-            color: #393e46;
+            color: #000000;
             text-align: center;
             padding: 10px 0;
             border: none;
@@ -177,7 +178,7 @@ navbar {
         .video-self {
             height: 400px;
             width: 100%;
-            background-color: #393e46;
+            background-color: #000000;
             border-radius: 10px;
             object-fit: cover;
         }
@@ -189,7 +190,7 @@ navbar {
             width: 100px;
 
             .device {
-                background-color: #4ecca3;
+                background-color: #FB2576;
                 border-radius: 100px;
                 padding: 10px;
                 width: 40px;
@@ -198,7 +199,7 @@ navbar {
                 color: white;
 
                 &:hover {
-                    background-color: #393e46;
+                    background-color: #000000;
                     cursor: pointer;
                 }
             }
@@ -213,7 +214,7 @@ navbar {
                 color: white;
 
                 &:hover {
-                    background-color: #393e46;
+                    background-color: #000000;
                     cursor: pointer;
                 }
             }
@@ -290,10 +291,12 @@ navbar {
             padding: 12px 20px;
             border-radius: 10px;
             transition: opacity 0.5s;
+
             &:hover {
                 opacity: 0.8;
                 cursor: pointer;
             }
+
             &:focus {
                 outline: 0;
             }
@@ -368,17 +371,19 @@ navbar {
                         cursor: pointer;
                     }
                 }
+
                 .red {
                     height: 30px;
                     width: 30px;
                     border-radius: 50px;
-                    background-color: #e74c3c;
+                    background-color: red;
                     margin-top: 10px;
 
                     &:hover {
                         cursor: pointer;
                     }
                 }
+
                 .yellow {
                     height: 30px;
                     width: 30px;
@@ -390,6 +395,7 @@ navbar {
                         cursor: pointer;
                     }
                 }
+
                 .green {
                     height: 30px;
                     width: 30px;
@@ -401,6 +407,7 @@ navbar {
                         cursor: pointer;
                     }
                 }
+
                 .orange {
                     height: 30px;
                     width: 30px;
@@ -412,6 +419,7 @@ navbar {
                         cursor: pointer;
                     }
                 }
+
                 .purple {
                     height: 30px;
                     width: 30px;
@@ -423,6 +431,7 @@ navbar {
                         cursor: pointer;
                     }
                 }
+
                 .blue {
                     height: 30px;
                     width: 30px;
@@ -434,6 +443,7 @@ navbar {
                         cursor: pointer;
                     }
                 }
+
                 .pink {
                     height: 30px;
                     width: 30px;
@@ -445,6 +455,7 @@ navbar {
                         cursor: pointer;
                     }
                 }
+
                 .brown {
                     height: 30px;
                     width: 30px;
@@ -456,6 +467,7 @@ navbar {
                         cursor: pointer;
                     }
                 }
+
                 .grey {
                     height: 30px;
                     width: 30px;
@@ -474,6 +486,7 @@ navbar {
                     font-size: 26px;
                     margin-top: 10px;
                     color: rgb(43, 43, 43);
+
                     &:hover {
                         cursor: pointer;
                     }
@@ -485,6 +498,7 @@ navbar {
                     font-size: 26px;
                     margin-top: 10px;
                     color: rgb(43, 43, 43);
+
                     &:hover {
                         cursor: pointer;
                     }
@@ -601,6 +615,7 @@ navbar {
 
         .footer {
             position: relative;
+
             .utils {
                 text-align: center;
                 margin: 0 auto;
@@ -621,6 +636,7 @@ navbar {
                     width: 40px;
                     border-radius: 100px;
                     transition: background-color 0.3s;
+
                     &:hover {
                         cursor: pointer;
                         background-color: $black;
@@ -655,6 +671,7 @@ navbar {
                     border-radius: 100px;
                     transition: background-color 0.3s;
                     transition: color 0.3s;
+
                     &:hover {
                         cursor: pointer;
                         color: white;
@@ -673,6 +690,7 @@ navbar {
                     border-radius: 100px;
                     transition: background-color 0.3s;
                     transition: color 0.3s;
+
                     &:hover {
                         cursor: pointer;
                         color: white;
@@ -725,6 +743,7 @@ navbar {
                     outline: none;
                     border-top-right-radius: 5px;
                     border-bottom-right-radius: 5px;
+
                     &:hover {
                         cursor: pointer;
                     }
@@ -798,6 +817,7 @@ navbar {
                 border-radius: 2px;
                 word-break: break-all;
                 word-wrap: break-word;
+
                 .info {
                     display: flex;
                     font-size: 0.85rem;
@@ -844,6 +864,7 @@ navbar {
                 &:focus {
                     outline: none;
                 }
+
                 border: none;
                 border-bottom: 3px solid $nicegreen;
                 color: $black;
