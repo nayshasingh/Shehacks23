@@ -14,8 +14,7 @@ const audioButt = document.querySelector('.audio');
 const cutCall = document.querySelector('.cutcall');
 const screenShareButt = document.querySelector('.screenshare');
 const whiteboardButt = document.querySelector('.board-icon')
-// import { myVariable } from './script.js';
-// console.log(myVariable); 
+
 //whiteboard js start
 const whiteboardCont = document.querySelector('.whiteboard-cont');
 const canvas = document.querySelector("#whiteboard");
@@ -191,7 +190,7 @@ function CopyClassText() {
     }
 
     document.querySelector(".copycode-button").textContent = "Copied!"
-    setTimeout(()=>{
+    setTimeout(() => {
         document.querySelector(".copycode-button").textContent = "Copy Code";
     }, 5000);
 }
@@ -435,16 +434,16 @@ function screenShareToggle() {
             }
             myscreenshare.getVideoTracks()[0].enabled = true;
             const newStream = new MediaStream([
-                myscreenshare.getVideoTracks()[0], 
+                myscreenshare.getVideoTracks()[0],
             ]);
             myvideo.srcObject = newStream;
             myvideo.muted = true;
             mystream = newStream;
-            screenShareButt.innerHTML = (screenshareEnabled 
+            screenShareButt.innerHTML = (screenshareEnabled
                 ? `<i class="fas fa-desktop"></i><span class="tooltiptext">Stop Share Screen</span>`
                 : `<i class="fas fa-desktop"></i><span class="tooltiptext">Share Screen</span>`
             );
-            myscreenshare.getVideoTracks()[0].onended = function() {
+            myscreenshare.getVideoTracks()[0].onended = function () {
                 if (screenshareEnabled) screenShareToggle();
             };
         })
@@ -602,6 +601,7 @@ socket.on('message', (msg, sendername, time) => {
     </div>
 </div>`
 });
+
 videoButt.addEventListener('click', () => {
 
     if (videoAllowed) {
@@ -650,6 +650,7 @@ audioButt.addEventListener('click', () => {
 
     if (audioAllowed) {
         for (let key in audioTrackSent) {
+            console.log(audioTrackSent[key]);
             audioTrackSent[key].enabled = false;
         }
         audioButt.innerHTML = `<i class="fas fa-microphone-slash"></i>`;
@@ -659,9 +660,10 @@ audioButt.addEventListener('click', () => {
             mystream.getTracks().forEach(track => {
                 if (track.kind === 'audio')
                     track.enabled = false;
+
             })
         }
-        
+
         mymuteicon.style.visibility = 'visible';
 
         socket.emit('action', 'mute');
@@ -676,10 +678,7 @@ audioButt.addEventListener('click', () => {
         if (mystream) {
             mystream.getTracks().forEach(track => {
                 if (track.kind === 'audio')
-                {
                     track.enabled = true;
-                    socket.on()
-                }
             })
         }
 
@@ -698,9 +697,10 @@ click_to_convert.addEventListener('click', ()=> {
             .map(result => result[0])
             .map(result => result.transcript)
         convert_text.innerHTML = transcript;
+        //convert_text.innerHTML = transcript;
         console.log(transcript);
         console.log("Ho na bhai");    
-        setInterval(socket.on('message', (msg, sendername, time) => {
+        socket.on('message', (msg, sendername, time) => {
             chatRoom.scrollTop = chatRoom.scrollHeight;
             chatRoom.innerHTML += `<div class="message">
             <div class="info">
@@ -711,15 +711,14 @@ click_to_convert.addEventListener('click', ()=> {
                 ${transcript}
             </div>
         </div>`
-        }), 1000);
-
+        });
+        
     })
     if (speech == true) {
         recognition.start();
     }
     
 })
-
 socket.on('action', (msg, sid) => {
     if (msg == 'mute') {
         console.log(sid + ' muted themself');
@@ -753,7 +752,6 @@ whiteboardButt.addEventListener('click', () => {
         boardVisisble = true;
     }
 })
-
 cutCall.addEventListener('click', () => {
     location.href = '/';
 })
